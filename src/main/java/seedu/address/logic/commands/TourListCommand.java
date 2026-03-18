@@ -16,7 +16,7 @@ public class TourListCommand extends Command {
 
     public static final String COMMAND_WORD = "tour_list";
 
-    public static final String MESSAGE_SUCCESS = "Listed all tours";
+    public static final String MESSAGE_SUCCESS = "Tour Packages Available:";
 
     @Override
     public CommandResult execute(Model model) {
