@@ -194,6 +194,17 @@ public class ParserUtil {
     }
 
     /**
+     * Parses a {@code Collection<String>} of tours into a {@code Set<Tour>}.
+     */
+    public static Set<Tour> parseTours(List<String> allValues) {
+        Set<Tour> tourSet = new HashSet<>();
+        for (String tourName : allValues) {
+            tourSet.add(new Tour(tourName));
+        }
+        return tourSet;
+    }
+
+    /**
      * Parses a {@code String accommodationStar} into an {@code Accommodation Stars}.
      * Leading and trailing whitespaces will be trimmed.
      *
