@@ -1,7 +1,6 @@
 package seedu.address.storage;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -168,7 +167,7 @@ class JsonAdaptedContact {
         final Set<Tour> modelTours = new HashSet<>(contactTours);
 
         if (type.equals(Person.class.getSimpleName())) {
-            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, Collections.emptySet());
+            return new Person(modelName, modelPhone, modelEmail, modelAddress, modelTags, modelTours);
         }
 
         if (type.equals(Fnb.class.getSimpleName())) {

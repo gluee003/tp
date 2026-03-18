@@ -21,12 +21,14 @@ import seedu.address.model.contact.AccommodationStars;
 import seedu.address.model.contact.Address;
 import seedu.address.model.contact.Attraction;
 import seedu.address.model.contact.ClosingHour;
+import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Email;
 import seedu.address.model.contact.Fnb;
 import seedu.address.model.contact.HalalStatus;
 import seedu.address.model.contact.Name;
 import seedu.address.model.contact.OpeningHour;
 import seedu.address.model.contact.Phone;
+import seedu.address.model.tour.Tour;
 
 public class JsonAdaptedContactTest {
     private static final String INVALID_TYPE = "Bruh";
@@ -53,8 +55,9 @@ public class JsonAdaptedContactTest {
     private static final String VALID_CLOSING_HOUR = USS.getClosingHour().toString();
     private static final String VALID_STARS = HOTEL.getStars().toString();
     private static final String NULL_PARAMETER = null;
-    // todo implement testing for tours (current temporary fix to pass build checks)
     private static final List<JsonAdaptedTour> EMPTY_TOUR = List.of();
+    private static final String INVALID_TOUR = "Street Food Tour!";
+    private static final String VALID_TOUR = "Street Food Tour";
 
     @Test
     public void toModelType_validPersonDetails_returnsContact() throws Exception {
@@ -358,5 +361,43 @@ public class JsonAdaptedContactTest {
                         INVALID_STARS);
 
         assertThrows(IllegalValueException.class, AccommodationStars.MESSAGE_CONSTRAINTS, contact::toModelType);
+    }
+
+    @Test
+    public void toModelType_invalidTours_throwsIllegalValueException() {
+        List<JsonAdaptedTour> invalidTours = new ArrayList<>();
+        invalidTours.add(new JsonAdaptedTour(INVALID_TOUR));
+        JsonAdaptedContact contact =
+                new JsonAdaptedContact(VALID_TYPE_PERSON, VALID_NAME_PERSON, VALID_PHONE_PERSON, VALID_EMAIL_PERSON,
+                        VALID_ADDRESS_PERSON, VALID_TAGS_PERSON, invalidTours,
+                        NULL_PARAMETER, NULL_PARAMETER, NULL_PARAMETER, NULL_PARAMETER);
+        assertThrows(IllegalValueException.class, contact::toModelType);
+    }
+
+
+    @Test
+    public void toModelType_validTours_returnsContact() throws Exception {
+        List<JsonAdaptedTour> validTours = List.of(new JsonAdaptedTour(VALID_TOUR));
+        JsonAdaptedContact contact =
+                new JsonAdaptedContact(VALID_TYPE_PERSON, VALID_NAME_PERSON, VALID_PHONE_PERSON, VALID_EMAIL_PERSON,
+                        VALID_ADDRESS_PERSON, VALID_TAGS_PERSON, validTours,
+                        NULL_PARAMETER, NULL_PARAMETER, NULL_PARAMETER, NULL_PARAMETER);
+        Contact result = contact.toModelType();
+        assertEquals(1, result.getTours().size());
+        assertEquals(new Tour(VALID_TOUR), result.getTours().iterator().next());
+    }
+
+    @Test
+    public void toModelType_multipleTours_returnsContact() throws Exception {
+        List<JsonAdaptedTour> multipleTours = List.of(
+                new JsonAdaptedTour(VALID_TOUR),
+                new JsonAdaptedTour("Halloween Tour")
+        );
+        JsonAdaptedContact contact =
+                new JsonAdaptedContact(VALID_TYPE_PERSON, VALID_NAME_PERSON, VALID_PHONE_PERSON, VALID_EMAIL_PERSON,
+                        VALID_ADDRESS_PERSON, VALID_TAGS_PERSON, multipleTours,
+                        NULL_PARAMETER, NULL_PARAMETER, NULL_PARAMETER, NULL_PARAMETER);
+        Contact result = contact.toModelType();
+        assertEquals(2, result.getTours().size());
     }
 }
