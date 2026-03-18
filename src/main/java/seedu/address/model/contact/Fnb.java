@@ -70,10 +70,6 @@ public class Fnb extends Contact {
 
     @Override
     public List<String> getTypeSpecificDetails() {
-<<<<<<< fix/resolve-save-contact-and-tour-clashes
         return List.of("Halal Status: " + isHalal.toString(), getToursString());
-=======
-        return List.of(isHalal.toString());
->>>>>>> master
     }
 }

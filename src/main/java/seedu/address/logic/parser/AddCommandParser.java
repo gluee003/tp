@@ -16,7 +16,6 @@ import static seedu.address.logic.parser.CliSyntax.TYPE_ACCOMMODATION;
 import static seedu.address.logic.parser.CliSyntax.TYPE_ATTRACTION;
 import static seedu.address.logic.parser.CliSyntax.TYPE_FNB;
 import static seedu.address.logic.parser.CliSyntax.TYPE_PERSON;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TOUR;
 
 import java.util.Set;
 import java.util.stream.Stream;

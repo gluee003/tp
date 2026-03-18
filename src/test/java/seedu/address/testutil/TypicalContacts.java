@@ -84,6 +84,7 @@ public class TypicalContacts {
             .withEmail(VALID_EMAIL_FNB)
             .withAddress(VALID_ADDRESS_FNB)
             .withTags(VALID_TAG_INDIAN)
+            .withTours()
             .build();
 
     // Attraction
@@ -94,6 +95,7 @@ public class TypicalContacts {
             .withEmail(VALID_EMAIL_ATTRACTION)
             .withAddress(VALID_ADDRESS_ATTRACTION)
             .withTags(VALID_TAG_FUN)
+            .withTours()
             .build();
 
     // Accommodation
@@ -104,6 +106,7 @@ public class TypicalContacts {
             .withEmail(VALID_EMAIL_ACCOMMODATION)
             .withAddress(VALID_ADDRESS_ACCOMMODATION)
             .withTags(VALID_TAG_STAY)
+            .withTours()
             .build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER

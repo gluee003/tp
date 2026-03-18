@@ -5,7 +5,6 @@ import static seedu.address.logic.parser.CliSyntax.VALID_TYPES;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
@@ -154,7 +153,6 @@ public class ParserUtil {
         return tourSet;
     }
 
-
     /**
      * Parses a {@code String halalStatus} into a {@code Halal Status}.
      * Leading and trailing whitespaces will be trimmed.
@@ -195,25 +193,6 @@ public class ParserUtil {
             throw new ParseException(ClosingHour.MESSAGE_CONSTRAINTS);
         }
         return new ClosingHour(trimmedClosingHour);
-    }
-
-    public static Set<Tour> parseTours(List<String> allValues) {
-        Set<Tour> tourSet = new HashSet<>();
-        for (String tourName : allValues) {
-            tourSet.add(new Tour(tourName));
-        }
-        return tourSet;
-    }
-
-    /**
-     * Parses a {@code Collection<String>} of tours into a {@code Set<Tour>}.
-     */
-    public static Set<Tour> parseTours(List<String> allValues) {
-        Set<Tour> tourSet = new HashSet<>();
-        for (String tourName : allValues) {
-            tourSet.add(new Tour(tourName));
-        }
-        return tourSet;
     }
 
     /**
