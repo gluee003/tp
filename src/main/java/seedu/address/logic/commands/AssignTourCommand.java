@@ -1,7 +1,6 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TOUR;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_CONTACTS;
 
 import java.util.HashSet;
@@ -25,36 +24,41 @@ public class AssignTourCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Assigns a tour to the contact identified by the index number used in the displayed contact list.\n"
-            + "Parameters: INDEX (must be a positive integer) "
-            + PREFIX_TOUR + "TOUR_NAME\n"
-            + "Example: " + COMMAND_WORD + " 1 " + PREFIX_TOUR + "walking tour";
+            + "Parameters: CONTACT_INDEX tour/TOUR_INDEX (both must be positive integers)\n"
+            + "Example: " + COMMAND_WORD + " 1 tour/2";
 
     public static final String MESSAGE_ASSIGN_TOUR_SUCCESS = "Assigned tour to contact: %1$s";
     public static final String MESSAGE_DUPLICATE_TOUR = "Contact is already assigned to this tour.";
 
-    private final Index index;
-    private final Tour tour;
+    private final Index contactIndex;
+    private final Index tourIndex;
 
     /**
-     * Creates an AssignTourCommand to assign the given {@code Tour} to the contact at {@code index}.
+     * Creates an AssignTourCommand to assign the tour at {@code tourIndex} to the contact at {@code contactIndex}.
      */
-    public AssignTourCommand(Index index, Tour tour) {
-        requireNonNull(index);
-        requireNonNull(tour);
-        this.index = index;
-        this.tour = tour;
+    public AssignTourCommand(Index contactIndex, Index tourIndex) {
+        requireNonNull(contactIndex);
+        requireNonNull(tourIndex);
+        this.contactIndex = contactIndex;
+        this.tourIndex = tourIndex;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Contact> lastShownList = model.getFilteredContactList();
+        List<Contact> lastShownContactList = model.getFilteredContactList();
+        List<Tour> lastShownTourList = model.getFilteredTourList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
+        if (contactIndex.getZeroBased() >= lastShownContactList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_CONTACT_DISPLAYED_INDEX);
         }
 
-        Contact contactToEdit = lastShownList.get(index.getZeroBased());
+        if (tourIndex.getZeroBased() >= lastShownTourList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_TOUR_DISPLAYED_INDEX);
+        }
+
+        Contact contactToEdit = lastShownContactList.get(contactIndex.getZeroBased());
+        Tour tour = lastShownTourList.get(tourIndex.getZeroBased());
 
         if (contactToEdit.isInTour(tour)) {
             throw new CommandException(MESSAGE_DUPLICATE_TOUR);
@@ -84,14 +88,14 @@ public class AssignTourCommand extends Command {
         }
 
         AssignTourCommand otherCommand = (AssignTourCommand) other;
-        return index.equals(otherCommand.index) && tour.equals(otherCommand.tour);
+        return contactIndex.equals(otherCommand.contactIndex) && tourIndex.equals(otherCommand.tourIndex);
     }
 
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .add("index", index)
-                .add("tour", tour)
+                .add("contactIndex", contactIndex)
+                .add("tourIndex", tourIndex)
                 .toString();
     }
 }

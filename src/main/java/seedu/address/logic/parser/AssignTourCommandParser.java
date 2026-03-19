@@ -8,7 +8,6 @@ import java.util.stream.Stream;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AssignTourCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.tour.Tour;
 
 /**
  * Parses input arguments and creates a new AssignTourCommand object.
@@ -28,17 +27,23 @@ public class AssignTourCommandParser implements Parser<AssignTourCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AssignTourCommand.MESSAGE_USAGE));
         }
 
-        Index index;
+        Index contactIndex;
         try {
-            index = ParserUtil.parseIndex(argMultimap.getPreamble());
+            contactIndex = ParserUtil.parseIndex(argMultimap.getPreamble());
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, AssignTourCommand.MESSAGE_USAGE), pe);
         }
 
-        Tour tour = ParserUtil.parseTour(argMultimap.getValue(PREFIX_TOUR).get());
+        Index tourIndex;
+        try {
+            tourIndex = ParserUtil.parseIndex(argMultimap.getValue(PREFIX_TOUR).get());
+        } catch (ParseException pe) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, AssignTourCommand.MESSAGE_USAGE), pe);
+        }
 
-        return new AssignTourCommand(index, tour);
+        return new AssignTourCommand(contactIndex, tourIndex);
     }
 
     private static boolean arePrefixesPresent(ArgumentMultimap argumentMultimap, Prefix... prefixes) {
