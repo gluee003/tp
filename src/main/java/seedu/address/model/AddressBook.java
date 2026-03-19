@@ -2,11 +2,13 @@ package seedu.address.model;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.HashSet;
 import java.util.List;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.NotImplementedException;
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.logic.commands.EditCommand.EditContactDescriptor;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.UniqueContactList;
 import seedu.address.model.tour.Tour;
@@ -133,6 +135,15 @@ public class AddressBook implements ReadOnlyAddressBook {
      */
     public void removeTour(Tour tour) {
         tours.remove(tour);
+        contacts.asUnmodifiableObservableList().stream()
+                .filter(contact -> contact.isInTour(tour))
+                .forEach(contact -> {
+                    EditContactDescriptor editContactDescriptor = new EditContactDescriptor();
+                    HashSet<Tour> editedTours = new HashSet<>(contact.getTours());
+                    editedTours.remove(tour);
+                    editContactDescriptor.setTours(editedTours);
+                    contacts.setContact(contact, contact.edit(editContactDescriptor));
+                });
     }
 
     //// util methods
