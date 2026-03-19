@@ -28,6 +28,7 @@ public class TourListCommandTest {
     @Test
     public void execute_listTours_success() {
         StringBuilder expectedMessage = new StringBuilder(TourListCommand.MESSAGE_SUCCESS);
+        expectedMessage.append(":\n");
         int index = 1;
         for (Tour tour : model.getFilteredTourList()) {
             expectedMessage.append(index).append(". ").append(tour.getTourName()).append("\n");
