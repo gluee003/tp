@@ -6,7 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_TOUR;
 import java.util.stream.Stream;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.AssignTourCommand;
+import seedu.address.logic.commands.tour.AssignTourCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**

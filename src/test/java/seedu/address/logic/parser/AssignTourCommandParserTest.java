@@ -9,7 +9,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_TOUR;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.AssignTourCommand;
+import seedu.address.logic.commands.tour.AssignTourCommand;
 
 public class AssignTourCommandParserTest {
 

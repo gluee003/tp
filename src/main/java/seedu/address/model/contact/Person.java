@@ -5,7 +5,7 @@ import static seedu.address.logic.parser.CliSyntax.TYPE_PERSON;
 import java.util.List;
 import java.util.Set;
 
-import seedu.address.logic.commands.EditCommand.EditContactDescriptor;
+import seedu.address.logic.commands.contact.EditCommand.EditContactDescriptor;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.tour.Tour;
 

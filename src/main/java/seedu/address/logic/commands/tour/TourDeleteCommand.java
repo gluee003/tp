@@ -1,50 +1,50 @@
-package seedu.address.logic.commands;
+package seedu.address.logic.commands.tour;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TOURS;
 
 import java.util.List;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
+import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.contact.ContactIsInTourPredicate;
 import seedu.address.model.tour.Tour;
 
 /**
- * Finds and lists all contacts in the address book who are assigned to the specified tour.
+ * Deletes a tour package from the address book.
  */
-public class ViewTourCommand extends Command {
+public class TourDeleteCommand extends Command {
 
-    public static final String COMMAND_WORD = "tour-view";
+    public static final String COMMAND_WORD = "tour-delete";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Finds all contacts assigned to the tour identified by the index number in the tour list.\n"
+            + ": Deletes the tour identified by the index number used in the displayed tour list.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1";
 
+    public static final String MESSAGE_DELETE_TOUR_SUCCESS = "Deleted Tour: %1$s";
+
     private final Index targetIndex;
 
-    public ViewTourCommand(Index targetIndex) {
+    public TourDeleteCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
     }
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        model.updateFilteredTourList(PREDICATE_SHOW_ALL_TOURS);
-        List<Tour> tourList = model.getFilteredTourList();
+        List<Tour> lastShownList = model.getFilteredTourList();
 
-        if (targetIndex.getZeroBased() >= tourList.size()) {
+        if (targetIndex.getZeroBased() >= lastShownList.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_TOUR_DISPLAYED_INDEX);
         }
 
-        Tour tour = tourList.get(targetIndex.getZeroBased());
-        model.updateFilteredContactList(new ContactIsInTourPredicate(tour));
-        return new CommandResult(
-                String.format(Messages.MESSAGE_CONTACTS_LISTED_OVERVIEW, model.getFilteredContactList().size()));
+        Tour tourToDelete = lastShownList.get(targetIndex.getZeroBased());
+        model.deleteTour(tourToDelete);
+        return new CommandResult(String.format(MESSAGE_DELETE_TOUR_SUCCESS, Messages.format(tourToDelete)));
     }
 
     @Override
@@ -54,12 +54,12 @@ public class ViewTourCommand extends Command {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof ViewTourCommand)) {
+        if (!(other instanceof TourDeleteCommand)) {
             return false;
         }
 
-        ViewTourCommand otherViewTourCommand = (ViewTourCommand) other;
-        return targetIndex.equals(otherViewTourCommand.targetIndex);
+        TourDeleteCommand otherDeleteCommand = (TourDeleteCommand) other;
+        return targetIndex.equals(otherDeleteCommand.targetIndex);
     }
 
     @Override
