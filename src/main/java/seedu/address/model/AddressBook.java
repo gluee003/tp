@@ -8,7 +8,7 @@ import java.util.List;
 import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.NotImplementedException;
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.logic.commands.EditCommand.EditContactDescriptor;
+import seedu.address.logic.commands.contact.EditCommand.EditContactDescriptor;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.UniqueContactList;
 import seedu.address.model.tour.Tour;

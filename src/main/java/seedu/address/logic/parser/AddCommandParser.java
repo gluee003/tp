@@ -19,7 +19,7 @@ import static seedu.address.logic.parser.CliSyntax.TYPE_PERSON;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import seedu.address.logic.commands.AddCommand;
+import seedu.address.logic.commands.contact.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.contact.Accommodation;
 import seedu.address.model.contact.AccommodationStars;

@@ -8,20 +8,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import seedu.address.commons.core.LogsCenter;
-import seedu.address.logic.commands.AddCommand;
-import seedu.address.logic.commands.AssignTourCommand;
-import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteCommand;
-import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.HelpCommand;
-import seedu.address.logic.commands.ListCommand;
-import seedu.address.logic.commands.TourAddCommand;
-import seedu.address.logic.commands.TourDeleteCommand;
-import seedu.address.logic.commands.TourListCommand;
-import seedu.address.logic.commands.ViewTourCommand;
+import seedu.address.logic.commands.contact.AddCommand;
+import seedu.address.logic.commands.contact.DeleteCommand;
+import seedu.address.logic.commands.contact.EditCommand;
+import seedu.address.logic.commands.contact.FindCommand;
+import seedu.address.logic.commands.contact.ListCommand;
+import seedu.address.logic.commands.general.ClearCommand;
+import seedu.address.logic.commands.general.ExitCommand;
+import seedu.address.logic.commands.general.HelpCommand;
+import seedu.address.logic.commands.tour.TourAddCommand;
+import seedu.address.logic.commands.tour.TourAssignCommand;
+import seedu.address.logic.commands.tour.TourDeleteCommand;
+import seedu.address.logic.commands.tour.TourListCommand;
+import seedu.address.logic.commands.tour.TourViewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -91,11 +91,11 @@ public class AddressBookParser {
         case TourDeleteCommand.COMMAND_WORD:
             return new TourDeleteCommandParser().parse(arguments);
 
-        case ViewTourCommand.COMMAND_WORD:
-            return new ViewTourCommandParser().parse(arguments);
+        case TourViewCommand.COMMAND_WORD:
+            return new TourViewCommandParser().parse(arguments);
 
-        case AssignTourCommand.COMMAND_WORD:
-            return new AssignTourCommandParser().parse(arguments);
+        case TourAssignCommand.COMMAND_WORD:
+            return new TourAssignCommandParser().parse(arguments);
 
         default:
             logger.finer("This user input caused a ParseException: " + userInput);
