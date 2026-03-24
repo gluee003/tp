@@ -1,4 +1,4 @@
----
+x`---
 layout: page
 title: User Guide
 ---
@@ -103,10 +103,10 @@ Bivago data are saved automatically as a JSON file `[JAR file location]/data/add
 welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
-If your changes to the data file makes its format invalid, Bivago will discard all data and start with an empty data 
-file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
-Furthermore, certain edits can cause the Bivago to behave in unexpected ways (e.g., if a value entered is outside of 
-the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
+If your changes to the data file makes its format invalid, Bivago will discard all data and start with an empty data
+ file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
+Furthermore, certain edits can cause the Bivago to behave in unexpected ways (e.g., if a value entered is outside of
+ the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
 ---
@@ -117,8 +117,8 @@ the acceptable range). Therefore, edit the data file only if you are confident t
 
 Adds a contact to the contact list.
 
-Format:  
-`add type/TYPE n/NAME p/PHONE e/EMAIL a/ADDRESS [h/HALAL_STATUS] [o/OPENING_HOUR] [c/CLOSING_HOUR] [s/STARS] [t/TAG]…​`
+Format:
+ `add type/TYPE n/NAME p/PHONE e/EMAIL a/ADDRESS [h/HALAL_STATUS] [o/OPENING_HOUR] [c/CLOSING_HOUR] [s/STARS] [t/TAG]…​`
 
 * Available types: `person`, `fnb`, `accommodation`, `attraction`
 * Fields are type-specific:
@@ -153,8 +153,8 @@ Format: `list`
 
 Edits an existing contact in the contact list.
 
-Format:  
-`edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [h/HALAL_STATUS] [o/OPENING_HOUR] [c/CLOSING_HOUR] [s/STARS] [t/TAG]…​`
+Format:
+ `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [h/HALAL_STATUS] [o/OPENING_HOUR] [c/CLOSING_HOUR] [s/STARS] [t/TAG]…​`
 
 * Edits the contact at the specified `INDEX`
 * The index refers to the number shown in the displayed list
