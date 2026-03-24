@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import seedu.address.model.contact.Contact;
 
 /**
- * An UI component that displays information of a {@code Contact}.
+ * A UI component that displays information of a {@code Contact}.
  */
 public class ContactCard extends UiPart<Region> {
 

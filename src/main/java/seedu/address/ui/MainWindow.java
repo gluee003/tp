@@ -3,7 +3,6 @@ package seedu.address.ui;
 import java.util.logging.Logger;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
@@ -29,15 +28,16 @@ public class MainWindow extends UiPart<Stage> {
     // Independent Ui parts residing in this Ui container
     private ContactListPanel contactListPanel;
     private ResultDisplay resultDisplay;
+    private TourListPanel tourListPanel;
 
     @FXML
     private StackPane commandBoxPlaceholder;
 
     @FXML
-    private MenuItem helpMenuItem;
+    private StackPane contactListPanelPlaceholder;
 
     @FXML
-    private StackPane contactListPanelPlaceholder;
+    private StackPane tourListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -70,6 +70,9 @@ public class MainWindow extends UiPart<Stage> {
     void fillInnerParts() {
         contactListPanel = new ContactListPanel(logic.getFilteredContactList());
         contactListPanelPlaceholder.getChildren().add(contactListPanel.getRoot());
+
+        tourListPanel = new TourListPanel(logic.getFilteredTourList());
+        tourListPanelPlaceholder.getChildren().add(tourListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
@@ -110,6 +113,13 @@ public class MainWindow extends UiPart<Stage> {
 
     public ContactListPanel getContactListPanel() {
         return contactListPanel;
+    }
+
+    /**
+     * Returns the {@code TourListPanel} of this window.
+     */
+    public TourListPanel getTourListPanel() {
+        return tourListPanel;
     }
 
     /**
