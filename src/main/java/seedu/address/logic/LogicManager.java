@@ -16,6 +16,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.contact.Contact;
+import seedu.address.model.tour.Tour;
 import seedu.address.storage.Storage;
 
 /**
@@ -69,6 +70,14 @@ public class LogicManager implements Logic {
     @Override
     public ObservableList<Contact> getFilteredContactList() {
         return model.getFilteredContactList();
+    }
+
+    /**
+     * Returns an unmodifiable view of the filtered list of {@code Tour}s.
+     */
+    @Override
+    public ObservableList<Tour> getFilteredTourList() {
+        return model.getFilteredTourList();
     }
 
     @Override
