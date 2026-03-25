@@ -27,6 +27,8 @@ public class TourAddCommandParser implements Parser<TourAddCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, TourAddCommand.MESSAGE_USAGE));
         }
 
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME);
+
         Tour tour = ParserUtil.parseTour(argMultimap.getValue(PREFIX_NAME).get());
 
         return new TourAddCommand(tour);

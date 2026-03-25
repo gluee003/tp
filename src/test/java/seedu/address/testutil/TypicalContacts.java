@@ -29,6 +29,8 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_FUN;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_INDIAN;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_STAY;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TOUR_NAME_JAMES;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TOUR_NAME_JAMES_JR;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -39,6 +41,7 @@ import seedu.address.model.contact.Accommodation;
 import seedu.address.model.contact.Attraction;
 import seedu.address.model.contact.Contact;
 import seedu.address.model.contact.Fnb;
+import seedu.address.model.tour.Tour;
 
 /**
  * A utility class containing a list of {@code Contact} objects to be used in tests.
@@ -108,6 +111,10 @@ public class TypicalContacts {
             .withTags(VALID_TAG_STAY)
             .withTours()
             .build();
+
+    // Tour
+    public static final Tour TOUR_JAMES = new Tour(VALID_TOUR_NAME_JAMES);
+    public static final Tour TOUR_JAMES_JR = new Tour(VALID_TOUR_NAME_JAMES_JR);
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
