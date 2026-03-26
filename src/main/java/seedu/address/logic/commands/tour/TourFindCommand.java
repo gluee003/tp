@@ -25,6 +25,10 @@ public class TourFindCommand extends Command {
 
     private final TourNameContainsKeywordsPredicate predicate;
 
+    /**
+     * Instantiates a TourFindCommand with a {@code typePredicate} that filters tours by their type,
+     * and {@code namePredicate} that filters tours by their name.
+     */
     public TourFindCommand(TourNameContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
         this.matchingList = new StringBuilder();

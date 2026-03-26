@@ -8,6 +8,9 @@ import seedu.address.logic.commands.tour.TourFindCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.tour.TourNameContainsKeywordsPredicate;
 
+/**
+ * Parses input arguments and creates a new TourFindCommand object
+ */
 public class TourFindCommandParser implements Parser<TourFindCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the TourFindCommand
