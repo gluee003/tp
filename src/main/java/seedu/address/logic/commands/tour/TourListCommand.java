@@ -6,7 +6,6 @@ import static seedu.address.model.Model.PREDICATE_SHOW_ALL_TOURS;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.Model;
-import seedu.address.model.tour.Tour;
 
 /**
  * Lists all unique tours in the address book to the user.
@@ -21,7 +20,7 @@ public class TourListCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
         model.updateFilteredTourList(PREDICATE_SHOW_ALL_TOURS);
-        
+
         return new CommandResult(MESSAGE_SUCCESS);
     }
 }

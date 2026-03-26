@@ -34,7 +34,6 @@ public class TourListCommandTest {
             expectedMessage.append(index).append(". ").append(tour.getTourName()).append("\n");
             index++;
         }
-        
         assertCommandSuccess(new TourListCommand(), model, expectedMessage.toString(), expectedModel);
     }
 }

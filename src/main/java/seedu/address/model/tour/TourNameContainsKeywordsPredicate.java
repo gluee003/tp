@@ -33,7 +33,8 @@ public class TourNameContainsKeywordsPredicate implements Predicate<Tour> {
             return false;
         }
 
-        TourNameContainsKeywordsPredicate otherNameContainsKeywordsPredicate = (TourNameContainsKeywordsPredicate) other;
+        TourNameContainsKeywordsPredicate otherNameContainsKeywordsPredicate =
+                (TourNameContainsKeywordsPredicate) other;
         return keywords.equals(otherNameContainsKeywordsPredicate.keywords);
     }
 
