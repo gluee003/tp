@@ -36,63 +36,26 @@ management while conducting the tour as you can quickly view contact details on 
 ## Quick start
 
 1. Ensure you have `Java 17` or above installed in your Computer.<br>
-
-<details>
-<summary><b>How?</b></summary>
-
-<ul>
-  <li><b>Windows users:</b> Follow the installation instructions 
-  <a href="https://se-education.org/guides/tutorials/javaInstallationWindows.html">here</a>.</li>
-
-  <li><b>Mac users:</b> Follow the installation instructions 
-  <a href="https://se-education.org/guides/tutorials/javaInstallationMac.html">here</a>.</li>
-
-  <li><b>Linux users:</b> Follow the installation instructions 
-  <a href="https://se-education.org/guides/tutorials/javaInstallationLinux.html">here</a>.</li>
-</ul>
-
-</details>
+**Windows users:** Follow the installation instructions [here](https://se-education.org/guides/tutorials/javaInstallationWindows.html).<br>
+**Mac users:** Follow the installation instructions [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).<br>
+**Linux users:** Follow the installation instructions [here](https://se-education.org/guides/tutorials/javaInstallationLinux.html).<br>
 
 2. Download the latest `.jar` file from [here](https://github.com/AY2526S2-CS2103T-W08-1/tp/releases).
 
-
 3. Open a command terminal.<br>
-
-<details>
-<summary><b>How?</b></summary>
-
-<ul>
-  <li><b>Windows users:</b> Press <code>Win + R</code>, type <code>cmd</code> and press <code>Enter</code>.</li>
-
-  <li><b>Mac users:</b> Press <code>Cmd + Space</code>, type <code>Terminal</code> and press <code>Enter</code>.</li>
-
-  <li><b>Linux users:</b> Open Terminal from your applications menu.</li>
-</ul>
-
-</details>
+**Windows users:** Press `Win + R`, type `cmd` and press `Enter`.<br>
+**Mac users:** Press `Cmd + Space`, type `Terminal` and press `Enter`.<br>
+**Linux users:** Open Terminal from your applications menu.<br>
 
 4. Copy the file to the folder you want to use as the _home folder_ for Bivago.<br>
-
-<details>
-<summary><b>How?</b></summary>
-
-<ul>
-  <li><b>Windows users:</b> <code>copy Bivago.jar FILEPATH</code></li>
-
-  <li><b>Mac/Linux users:</b> <code>cp Bivago.jar FILEPATH</code></li>
-</ul>
-
-</details>
+**Windows users:** Type `copy Bivago.jar FILEPATH` and press `Enter`.<br>
+**Mac/Linux users:** Type `cp Bivago.jar FILEPATH` and press `Enter`.<br>
 
 5. Type `cd FILEPATH` and press `Enter` to navigate to the folder you put the jar file in.
 
-
 6. Type `java -jar Bivago.jar` command and press `Enter` to run the application.<br>
    A window similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-
-
    ![Ui](images/Ui.png)
-
 
 7. Type a command in the command box and press `Enter` to execute it. e.g. typing `help` and pressing `Enter` will
    display the program usage instructions.<br>
