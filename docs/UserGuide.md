@@ -51,8 +51,8 @@ management while conducting the tour as you can quickly view contact details on 
 **Linux users:** Open Terminal from your applications menu.<br>
 
 4. Copy the file to the folder you want to use as the _home folder_ for Bivago.<br>
-**Windows users:** Type `copy Bivago.jar C:\path\to\your\folder` and press `Enter`.<br>
-**Mac/Linux users:** Type `cp Bivago.jar /path/to/your/folder` and press `Enter`.<br>
+**Windows users:** Type `copy Bivago.jar FILEPATH` and press `Enter`.<br>
+**Mac/Linux users:** Type `cp Bivago.jar FILEPATH` and press `Enter`.<br>
 
 5. Type `cd FILEPATH` and press `Enter` to navigate to the folder you put the jar file in.
 
@@ -91,7 +91,7 @@ management while conducting the tour as you can quickly view contact details on 
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
