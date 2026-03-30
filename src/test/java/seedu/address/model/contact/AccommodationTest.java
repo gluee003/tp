@@ -7,6 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_STARS_ACCOMMODATION;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalContacts.HOTEL;
@@ -31,8 +32,29 @@ public class AccommodationTest {
 
     @Test
     public void constructor_defaultStars_success() {
-        Accommodation accommodation = (Accommodation) new AccommodationBuilder().build();
+        Accommodation accommodation = new Accommodation(
+                HOTEL.getName(),
+                HOTEL.getPhone(),
+                HOTEL.getEmail(),
+                HOTEL.getAddress(),
+                HOTEL.getTags(),
+                HOTEL.getTours());
+
         assertEquals("3", accommodation.getStars().toString());
+    }
+
+    @Test
+    public void constructor_specifiedStars_success() {
+        Accommodation accommodation = new Accommodation(
+                HOTEL.getName(),
+                HOTEL.getPhone(),
+                HOTEL.getEmail(),
+                HOTEL.getAddress(),
+                HOTEL.getTags(),
+                new AccommodationStars(VALID_STARS_ACCOMMODATION),
+                HOTEL.getTours());
+
+        assertEquals("4", accommodation.getStars().toString());
     }
 
     @Test

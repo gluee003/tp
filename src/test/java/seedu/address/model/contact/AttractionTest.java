@@ -35,9 +35,62 @@ public class AttractionTest {
 
     @Test
     public void constructor_defaultOperatingHours_success() {
-        Attraction attraction = (Attraction) new AttractionBuilder().build();
+        Attraction attraction = new Attraction(
+                USS.getName(),
+                USS.getPhone(),
+                USS.getEmail(),
+                USS.getAddress(),
+                USS.getTags(),
+                USS.getTours());
+
         assertEquals("08:00", attraction.getOpeningHour().toString());
         assertEquals("22:00", attraction.getClosingHour().toString());
+    }
+
+    @Test
+    public void constructor_defaultOpeningHour_success() {
+        Attraction attraction = new Attraction(
+                USS.getName(),
+                USS.getPhone(),
+                USS.getEmail(),
+                USS.getAddress(),
+                USS.getTags(),
+                new ClosingHour(VALID_CLOSING_HOUR_ATTRACTION),
+                USS.getTours());
+
+        assertEquals("08:00", attraction.getOpeningHour().toString());
+        assertEquals("23:00", attraction.getClosingHour().toString());
+    }
+
+    @Test
+    public void constructor_defaultClosingHour_success() {
+        Attraction attraction = new Attraction(
+                USS.getName(),
+                USS.getPhone(),
+                USS.getEmail(),
+                USS.getAddress(),
+                USS.getTags(),
+                new OpeningHour(VALID_OPENING_HOUR_ATTRACTION),
+                USS.getTours());
+
+        assertEquals("09:00", attraction.getOpeningHour().toString());
+        assertEquals("22:00", attraction.getClosingHour().toString());
+    }
+
+    @Test
+    public void constructor_specifiedOpeningAndClosingHours_success() {
+        Attraction attraction = new Attraction(
+                USS.getName(),
+                USS.getPhone(),
+                USS.getEmail(),
+                USS.getAddress(),
+                USS.getTags(),
+                new OpeningHour(VALID_OPENING_HOUR_ATTRACTION),
+                new ClosingHour(VALID_CLOSING_HOUR_ATTRACTION),
+                USS.getTours());
+
+        assertEquals("09:00", attraction.getOpeningHour().toString());
+        assertEquals("23:00", attraction.getClosingHour().toString());
     }
 
     @Test

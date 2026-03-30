@@ -31,8 +31,29 @@ public class FnbTest {
     }
 
     @Test
-    public void constructor_defaultHalalStatus_false() {
-        Fnb fnb = (Fnb) new FnbBuilder().build();
+    public void constructor_defaultHalalStatus_success() {
+        Fnb fnb = new Fnb(
+                AL_AZHAR.getName(),
+                AL_AZHAR.getPhone(),
+                AL_AZHAR.getEmail(),
+                AL_AZHAR.getAddress(),
+                AL_AZHAR.getTags(),
+                AL_AZHAR.getTours());
+
+        assertFalse(fnb.isHalal());
+    }
+
+    @Test
+    public void constructor_specifiedHalalStatus_success() {
+        Fnb fnb = new Fnb(
+                AL_AZHAR.getName(),
+                AL_AZHAR.getPhone(),
+                AL_AZHAR.getEmail(),
+                AL_AZHAR.getAddress(),
+                AL_AZHAR.getTags(),
+                new HalalStatus(VALID_HALAL_STATUS_FALSE_FNB),
+                AL_AZHAR.getTours());
+
         assertFalse(fnb.isHalal());
     }
 
