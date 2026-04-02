@@ -357,46 +357,46 @@ Deletes the specified contact from the contact list.
 
 </details>
 
-### Adding contacts to favorites: `favorite-add`
+### Adding contacts to favourites: `favourite-add`
 
-Adds a specified contact from the contact list as a favorite contact.
+Adds a specified contact from the contact list as a favourite contact.
 
-**Format:** `favorite-add INDEX`
+**Format:** `favourite-add INDEX`
 
-* Adds the contact at the specified `INDEX` as a favorite contact.
+* Adds the contact at the specified `INDEX` as a favourite contact.
 * Index must be a positive integer
 
 <details>
 <summary><b>Example:</b></summary>
 
 <ul>
-  <li><code>favorite-add 2</code> :
-  Adds the second contact shown in the current contact list as a favorite contact.</li>
+  <li><code>favourite-add 2</code> :
+  Adds the second contact shown in the current contact list as a favourite contact.</li>
 </ul>
 
 </details>
 
-### Viewing favorite contacts `favorite-view`
+### Viewing favourite contacts `favourite-view`
 
-Shows a list of all favorite contacts in the contact list.
+Shows a list of all favourite contacts in the contact list.
 
-**Format:** `favorite-view`
+**Format:** `favourite-view`
 
-### Removing contacts from favorites: `favorite-remove`
+### Removing contacts from favourites: `favourite-remove`
 
-Removes a specified contact as a favorite contact.
+Removes a specified contact as a favourite contact.
 
-**Format:** `favorite-remove INDEX`
+**Format:** `favourite-remove INDEX`
 
-* Removes the contact at the specified `INDEX` as a favorite contact.
+* Removes the contact at the specified `INDEX` as a favourite contact.
 * Index must be a positive integer
 
 <details>
 <summary><b>Example:</b></summary>
 
 <ul>
-  <li><code>favorite-remove 1</code> :
-  Removes the first contact shown in the current contact list as a favorite contact.</li>
+  <li><code>favourite-remove 1</code> :
+  Removes the first contact shown in the current contact list as a favourite contact.</li>
 </ul>
 
 </details>
