@@ -232,6 +232,9 @@ A contact can have any number of tags (including 0)
 </ul>
 
 </details>
+<br>
+
+
 
 **Type-specific Fields & Constraints**
 
